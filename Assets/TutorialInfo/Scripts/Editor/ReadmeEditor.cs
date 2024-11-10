@@ -15,6 +15,7 @@ public class ReadmeEditor : Editor
     static string s_ReadmeSourceDirectory = "Assets/TutorialInfo";
 
     const float k_Space = 16f;
+    string a = "1";
 
     static ReadmeEditor()
     {
