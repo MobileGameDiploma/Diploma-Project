@@ -1299,7 +1299,7 @@ MonoBehaviour:
   VirtualCamera: {fileID: 61735917}
   MaxCameraAngle: 14
   MinCameraAngle: 11
-  Speed: 2
+  Speed: 3
   CameraMoveSpeed: 5.01
 --- !u!224 &1801956201 stripped
 RectTransform:
