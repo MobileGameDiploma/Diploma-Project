@@ -18,24 +18,19 @@ public class EnemyMovementSystem : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log("async");
             Transform activePoint = MovePoints[_index];
 
             yield return new WaitForSecondsRealtime(MoveDelay);
 
             while (transform.position != activePoint.position)
             {
-                Debug.Log("while");
                 transform.position = Vector3.MoveTowards(transform.position, activePoint.position, Speed);
                 yield return new WaitForSecondsRealtime(0.01f);
             }
-            Debug.Log("end");
             if (_index == MovePoints.Count - 1)
                 _index = 0;
             else
                 _index++;
-
-            
         }
     }
 }
