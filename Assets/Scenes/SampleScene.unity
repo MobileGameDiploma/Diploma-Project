@@ -857,6 +857,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 5589714667308283006, guid: eaad37fddee2ad749a7fe68b9368af98,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8716679105001830727, guid: eaad37fddee2ad749a7fe68b9368af98,
         type: 3}
       propertyPath: m_Constraints
@@ -932,12 +937,6 @@ Transform:
 --- !u!4 &1179786396 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3394251519956433394, guid: 8e65f3562900fc94b9b5fbd9c8073738,
-    type: 3}
-  m_PrefabInstance: {fileID: 8966242999732229211}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &1179786397 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 3798507953014379139, guid: 8e65f3562900fc94b9b5fbd9c8073738,
     type: 3}
   m_PrefabInstance: {fileID: 8966242999732229211}
   m_PrefabAsset: {fileID: 0}
@@ -1189,13 +1188,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25bc517bb5983bc4a86c00abfd2002b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rigidbody: {fileID: 1179786397}
+  Rigidbody: {fileID: 1766240871}
   PlayerJoyStick: {fileID: 1801956202}
   VirtualCamera: {fileID: 61735917}
   MaxCameraAngle: 14
   MinCameraAngle: 11
   Speed: 3
   CameraMoveSpeed: 5.01
+--- !u!54 &1766240871 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 3798507953014379139, guid: 8e65f3562900fc94b9b5fbd9c8073738,
+    type: 3}
+  m_PrefabInstance: {fileID: 8966242999732229211}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1801956202 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3353502860781855680, guid: 8e65f3562900fc94b9b5fbd9c8073738,
@@ -1301,6 +1306,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566811989915575290, guid: 8e65f3562900fc94b9b5fbd9c8073738,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566811989915575290, guid: 8e65f3562900fc94b9b5fbd9c8073738,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566811989915575290, guid: 8e65f3562900fc94b9b5fbd9c8073738,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.000001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
