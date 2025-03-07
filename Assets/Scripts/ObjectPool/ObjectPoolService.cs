@@ -31,7 +31,7 @@ public class ObjectPoolService
         return instance;
     }
 
-    public void AddPool(GameObject gameObject,GameObjectPool pool)
+    public void AddPool(GameObject gameObject, GameObjectPool pool)
     {
         _poolsMap.Add(gameObject, pool);
     }
