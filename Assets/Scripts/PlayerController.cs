@@ -34,8 +34,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        _rb.velocity = new Vector3(_joystick.Horizontal * _speed, _rb.velocity.y, _joystick.Vertical * _speed);
-
+        //_rb.velocity = new Vector3(_joystick.Horizontal * _speed, _rb.velocity.y, _joystick.Vertical * _speed);
+        _rb.AddForce(new Vector3(_joystick.Horizontal * _speed, _rb.velocity.y, _joystick.Vertical * _speed) * Time.deltaTime, ForceMode.VelocityChange);
 
         float angleValue = GetMaxAxis();
 
