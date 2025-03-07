@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class EnemyGroupSpawnSystem : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class EnemyGroupSpawnSystem : MonoBehaviour
     public List<GameObject> SpawnPoints;
     public float SpawnDelay;
 
+    [Inject] private ObjectPoolService _poolService;
     private Queue<GameObject> _spawnPoints;
     private int _spawnedCount;
     private int _maxCount;
@@ -34,12 +36,14 @@ public class EnemyGroupSpawnSystem : MonoBehaviour
         {
             if (_spawnedCount == _maxCount)
             {
-
+                
             }
             else
             {
+                
                 GameObject activeSpawnPoint = _spawnPoints.Dequeue();
-                Instantiate(EnemyPrefab, activeSpawnPoint.transform.position, Quaternion.identity);
+                GameObject prefab = _poolService.GetOrCreatePool(EnemyPrefab).Get();
+                prefab.transform.position = activeSpawnPoint.transform.position;
                 _spawnPoints.Enqueue(activeSpawnPoint);
                 _spawnedCount++;
             }

@@ -60,7 +60,6 @@ public class GameObjectPool : IDisposable
 
     private GameObject Create()
     {
-        Debug.Log(_container.ToString());
         if(_container == null)
             return Object.Instantiate(_prefab);
         else
