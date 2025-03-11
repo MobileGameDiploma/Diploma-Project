@@ -8,6 +8,7 @@ public class PlayerMonoInstaller : MonoInstaller
     public Rigidbody Rigidbody;
     public FixedJoystick PlayerJoyStick;
     public CinemachineVirtualCamera VirtualCamera;
+    public CharacterController CharacterController;
 
     [Header("Technical Parameters")]
     [Range(12, 20)]
@@ -39,5 +40,6 @@ public class PlayerMonoInstaller : MonoInstaller
     {
         Container.Bind<PlayerConfig>().FromInstance(_playerConfig).AsSingle();
         Container.Bind<CameraConfig>().FromInstance(_cameraConfig).AsSingle();
+        Container.Bind<CharacterController>().FromInstance(CharacterController).AsSingle();
     }
 }

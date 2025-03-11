@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2401724942985003652}
   - component: {fileID: 3798507953014379139}
   - component: {fileID: 1953208906046821859}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,10 +136,10 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!114 &1953208906046821859
 MonoBehaviour:
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 8468174776553321769}
   - component: {fileID: 7655742980152386827}
   - component: {fileID: 6382213209077021704}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: KeepTargetSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 9.735447, y: 1, z: 10.494392}
   m_Center: {x: 0.6422386, y: 0, z: -0.40702844}
@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 2851484697208320543}
   - component: {fileID: 6998562410359525415}
   - component: {fileID: 1464036739914519991}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -335,7 +335,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8212035438875175175}
   - component: {fileID: 7236763601128400016}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Virtual Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,7 +406,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5424455570912549009}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LootTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -440,7 +440,7 @@ GameObject:
   - component: {fileID: 1360370621236762180}
   - component: {fileID: 6193293682947623240}
   - component: {fileID: 1384450436637026690}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -535,7 +535,7 @@ GameObject:
   - component: {fileID: 2682231926498597382}
   - component: {fileID: 2846078544855332925}
   - component: {fileID: 1170417903090006474}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -551,7 +551,7 @@ Transform:
   m_GameObject: {fileID: 8551413665743956080}
   serializedVersion: 2
   m_LocalRotation: {x: 0.4001583, y: 0.000000008453981, z: -0.0000000036913572, w: 0.9164461}
-  m_LocalPosition: {x: -1.8671453, y: 12.16042, z: -18.069145}
+  m_LocalPosition: {x: 0, y: 11, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -762,6 +762,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fixed Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252285020697097, guid: aaa2c939c0359ac4dbce3f49e8b90252,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
