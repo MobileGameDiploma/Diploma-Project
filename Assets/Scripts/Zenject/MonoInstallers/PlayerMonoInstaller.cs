@@ -32,7 +32,7 @@ public class PlayerMonoInstaller : MonoInstaller
 
     private void BuildObjects()
     {
-        _playerConfig = new PlayerConfig(Rigidbody, PlayerJoyStick, Speed);
+        _playerConfig = new PlayerConfig(Rigidbody, PlayerJoyStick, Speed/10);
         _cameraConfig = new CameraConfig(VirtualCamera, MaxCameraAngle, MinCameraAngle, CameraMoveSpeed);
     }
 

@@ -34,17 +34,14 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         AdjustCameraHeight();
-    }
-
-    private void FixedUpdate()
-    {
         MovePlayer();
     }
 
     private void MovePlayer()
     {
         Vector3 movement = new Vector3(_joystick.Horizontal, 0, _joystick.Vertical) * _speed * Time.fixedDeltaTime;
-        _rb.MovePosition(transform.position + movement);
+        //_rb.MovePosition(transform.position + movement);
+        transform.position += movement;
     }
 
     private void AdjustCameraHeight()
