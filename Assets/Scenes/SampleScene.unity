@@ -246,37 +246,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!1 &163571341
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 163571342}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &163571342
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 163571341}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.2169313, y: 1.678421, z: 6.653064}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &365887246
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,6 +594,7 @@ Transform:
   m_Children:
   - {fileID: 1757971168}
   - {fileID: 1966676998}
+  - {fileID: 1271002695}
   m_Father: {fileID: 1734268779}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &826190304
@@ -643,6 +613,7 @@ MonoBehaviour:
   _monoInstallers:
   - {fileID: 1757971169}
   - {fileID: 1966676999}
+  - {fileID: 1271002696}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -791,6 +762,52 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8966242999732229211}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1271002694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1271002695}
+  - component: {fileID: 1271002696}
+  m_Layer: 0
+  m_Name: AudioInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1271002695
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271002694}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 826190303}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1271002696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271002694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90fb36b3e53c7834e9d57a8951b28dd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSource: {fileID: 7892474355786954332, guid: 99ccd503df84154459c20574d5056dd7,
+    type: 3}
 --- !u!1 &1419475197
 GameObject:
   m_ObjectHideFlags: 0
@@ -1014,8 +1031,9 @@ MonoBehaviour:
   CharacterController: {fileID: 1766240876}
   MaxCameraAngle: 16.02
   MinCameraAngle: 11
-  Speed: 3
+  Speed: 4
   CameraMoveSpeed: 8
+  PlayerStats: {fileID: 11400000, guid: 1d2625f0a690b2f4899242b0cd6c8add, type: 2}
 --- !u!54 &1766240871 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 3798507953014379139, guid: 8e65f3562900fc94b9b5fbd9c8073738,
@@ -1137,6 +1155,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SmallLength: 3
   StandartLength: 7
+  LayerMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1001 &8966242999732229211
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1242,8 +1263,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3798507953014379139, guid: 8e65f3562900fc94b9b5fbd9c8073738,
         type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798507953014379139, guid: 8e65f3562900fc94b9b5fbd9c8073738,
+        type: 3}
       propertyPath: m_Constraints
-      value: 84
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798507953014379139, guid: 8e65f3562900fc94b9b5fbd9c8073738,
+        type: 3}
+      propertyPath: m_ImplicitCom
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798507953014379139, guid: 8e65f3562900fc94b9b5fbd9c8073738,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798507953014379139, guid: 8e65f3562900fc94b9b5fbd9c8073738,
+        type: 3}
+      propertyPath: m_ImplicitTensor
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4191045387383942441, guid: 8e65f3562900fc94b9b5fbd9c8073738,
         type: 3}
@@ -1285,4 +1326,3 @@ SceneRoots:
   - {fileID: 693784640}
   - {fileID: 1734268779}
   - {fileID: 1419475198}
-  - {fileID: 163571342}

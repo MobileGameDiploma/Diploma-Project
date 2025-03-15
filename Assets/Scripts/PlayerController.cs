@@ -10,7 +10,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rb;
     private FixedJoystick _joystick;
     private float _speed;
-
+    private PlayerStats _stats;
+    
     private CinemachineVirtualCamera _cam;
     private float _minCameraAngle;
     private float _maxCameraAngle;
@@ -18,11 +19,12 @@ public class PlayerController : MonoBehaviour
     private CinemachineTransposer _transposer;
 
     [Inject]
-    private void Construct(PlayerConfig playerConfig, CameraConfig cameraConfig)
+    private void Construct(PlayerConfig playerConfig, CameraConfig cameraConfig, PlayerStats playerStats)
     {
         _rb = playerConfig.Rigidbody;
         _joystick = playerConfig.joystick;
-        _speed = playerConfig.Speed;
+        _speed = playerStats.Speed;
+        _stats = playerStats;
 
         _cam = cameraConfig.VirtualCamera;
         _minCameraAngle = cameraConfig.MinCameraAngle;
@@ -63,6 +65,14 @@ public class PlayerController : MonoBehaviour
     private float GetMaxAxis()
     {
         return Mathf.Max(Math.Abs(_joystick.Horizontal), Math.Abs(_joystick.Vertical));
+    }
+
+    private void OnApplicationQuit()
+    {
+        foreach (SpellData spell in _stats.Spells)
+        {
+            spell.IsActive = false;
+        }
     }
 }
 

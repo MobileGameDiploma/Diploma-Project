@@ -10,11 +10,22 @@ public class PlayerStats : ScriptableObject
     public float Speed;
     public float Defence;
     public float Armor;
+    public float CameraMoveSpeed;
 
     [Header("Multipliers")]
     public float DamageMultiplyParameter;
     public float CastSpeedMultiplyParameter;
 
     [Header("Spells")]
-    public List<SpellInfo> Spells;
+    public List<SpellData> Spells;
+    
+    public SpellData GetSpellByName(string name)
+    {
+        foreach (SpellData spell in Spells)
+        {
+            if(spell.Name == name)
+                return spell;
+        }
+        return null;
+    }
 }

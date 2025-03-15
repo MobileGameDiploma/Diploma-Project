@@ -18,7 +18,8 @@ public class PlayerMonoInstaller : MonoInstaller
     [Header("Player Parameters")]
     public float Speed;
     [Range(1, 10)]public float CameraMoveSpeed;
-
+    public PlayerStats PlayerStats; 
+    
     #region ObjectContainers
     private PlayerConfig _playerConfig;
     private CameraConfig _cameraConfig;
@@ -29,15 +30,17 @@ public class PlayerMonoInstaller : MonoInstaller
         BuildObjects();
         SetBindings();
     }
-
+    
+    
     private void BuildObjects()
     {
-        _playerConfig = new PlayerConfig(Rigidbody, PlayerJoyStick, Speed/10);
+        _playerConfig = new PlayerConfig(Rigidbody, PlayerJoyStick);
         _cameraConfig = new CameraConfig(VirtualCamera, MaxCameraAngle, MinCameraAngle, CameraMoveSpeed);
     }
 
     private void SetBindings()
     {
+        Container.Bind<PlayerStats>().FromInstance(PlayerStats);
         Container.Bind<PlayerConfig>().FromInstance(_playerConfig).AsSingle();
         Container.Bind<CameraConfig>().FromInstance(_cameraConfig).AsSingle();
         Container.Bind<CharacterController>().FromInstance(CharacterController).AsSingle();

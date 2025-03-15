@@ -9,10 +9,11 @@ public class EnemyMonoInstaller : MonoInstaller
     public float SmallLength;
     [Header("Нормальная зона передвижения")]
     public float StandartLength;
+    [Header("Слой врагов")]
+    public LayerMask LayerMask;
     
     private GameObjectPoolFactory _poolFactory;
     private ObjectPoolService _pool;
-    private DiContainer _container;
 
     public override void InstallBindings()
     {
@@ -29,8 +30,8 @@ public class EnemyMonoInstaller : MonoInstaller
     private void InsBindings()
     {
         Container.Bind<ObjectPoolService>().FromInstance(_pool).AsSingle().NonLazy();
-        Container.Bind<DiContainer>().FromInstance(_container).AsSingle().NonLazy();
         Container.Bind<float>().WithId("SmallLength").FromInstance(SmallLength).AsCached().NonLazy();
         Container.Bind<float>().WithId("StandartLength").FromInstance(StandartLength).AsCached().NonLazy();
+        Container.Bind<LayerMask>().WithId("EnemyLayer").FromInstance(LayerMask).AsCached().NonLazy();
     }
 }

@@ -6,12 +6,10 @@ public class PlayerConfig
 {
     public Rigidbody Rigidbody;
     public FixedJoystick joystick;
-    public float Speed;
 
-    public PlayerConfig(Rigidbody rigidbody, FixedJoystick joystick, float speed)
+    public PlayerConfig(Rigidbody rigidbody, FixedJoystick joystick)
     {
         Rigidbody = rigidbody;
         this.joystick = joystick;
-        Speed = speed;
     }
 }

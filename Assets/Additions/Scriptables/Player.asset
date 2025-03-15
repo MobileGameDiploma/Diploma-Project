@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   Health: 0
-  Speed: 0
+  Speed: 0.4
   Defence: 0
   Armor: 0
+  CameraMoveSpeed: 0
   DamageMultiplyParameter: 0
   CastSpeedMultiplyParameter: 0
-  Spells: []
+  Spells:
+  - {fileID: 11400000, guid: da8c37318cdd9794a9d7c2af9ee3f51e, type: 2}

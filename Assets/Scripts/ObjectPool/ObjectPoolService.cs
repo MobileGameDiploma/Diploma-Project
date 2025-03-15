@@ -6,8 +6,7 @@ public class ObjectPoolService
 {
     private readonly PoolSettings _defaultSettings;
     private readonly Dictionary<GameObject, GameObjectPool> _poolsMap = new(32);
-    private readonly Dictionary<GameObject, GameObject> _spawnedGameObjectsMap = new(256); 
-     private readonly DiContainer _container;
+    private readonly Dictionary<GameObject, GameObject> _spawnedGameObjectsMap = new(256);
     public IEnumerable<GameObject> SpawnedGameObjects => _spawnedGameObjectsMap.Keys;
 
     public int SpawnedGameObjectsCount => _spawnedGameObjectsMap.Count;
