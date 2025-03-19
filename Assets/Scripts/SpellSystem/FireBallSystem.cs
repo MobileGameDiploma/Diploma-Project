@@ -6,7 +6,7 @@ using UnityEngine;
 using Zenject;
 using Object = UnityEngine.Object;
 
-public class FireBall : MonoBehaviour, ISpellMultipleTargets
+public class FireBallSystem : MonoBehaviour, ISpellMultipleTargets
 {
     [Inject] 
     public PlayerStats PlayerStats { get; set; }
@@ -24,13 +24,18 @@ public class FireBall : MonoBehaviour, ISpellMultipleTargets
         _currentSpell = PlayerStats.GetSpellByName("Fireball");
     }
 
-    public void Execute(Transform spawnPoint, Transform target)
+    public void SpawnFireBall(Transform spawnPoint, Transform target)
     {
         GameObject fireball = Instantiate(_currentSpell.VFX_Effect, spawnPoint.position, Quaternion.identity);
         FireBallLogic logic = fireball.GetComponent<FireBallLogic>();
         logic.Target = target;
         logic.System = this;
         StartCoroutine(SpellReload());
+    }
+    
+    public void DeleteEnemy(GameObject target)
+    {
+        _enemies.Remove(target);
     }
     
     IEnumerator SpellReload()
@@ -46,7 +51,7 @@ public class FireBall : MonoBehaviour, ISpellMultipleTargets
         {
             if (!_currentSpell.IsActive)
             {
-                Execute(FireBallSpawnPosition, _enemies[0].transform);
+                SpawnFireBall(FireBallSpawnPosition, _enemies[0].transform);
             }
         }
     }
@@ -58,11 +63,6 @@ public class FireBall : MonoBehaviour, ISpellMultipleTargets
             _enemies.Add(other.gameObject);
         }
     }
-    
-    public void DeleteEnemy(GameObject target)
-    {
-        _enemies.Remove(target);
-    }
 
     private void OnTriggerExit(Collider other)
     {
@@ -71,13 +71,4 @@ public class FireBall : MonoBehaviour, ISpellMultipleTargets
             _enemies.Remove(other.gameObject);
         }
     }
-
-    // private void OnTriggerStay(Collider other)
-    // {
-    //     if ((_enemyLayer.value & (1 << other.gameObject.layer)) > 0 && !_currentSpell.IsActive)
-    //     {
-    //         _enemies.Add(other.gameObject);
-    //         Execute(FireBallSpawnPosition, other.transform);
-    //     }
-    // }
 }

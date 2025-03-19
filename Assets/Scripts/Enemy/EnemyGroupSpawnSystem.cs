@@ -5,7 +5,7 @@ using Zenject;
 
 public class EnemyGroupSpawnSystem : MonoBehaviour
 {
-    public GameObject EnemyPrefab;
+    public EnemyHealthSystem EnemyPrefab;
     public List<GameObject> SpawnPoints;
     public float SpawnDelay;
 
@@ -40,15 +40,21 @@ public class EnemyGroupSpawnSystem : MonoBehaviour
             }
             else
             {
-                
+                EnemyPrefab.EnemyGroupSystem = this;
                 GameObject activeSpawnPoint = _spawnPoints.Dequeue();
-                GameObject prefab = _poolService.GetOrCreatePool(EnemyPrefab).Get();
+                GameObject prefab = _poolService.GetOrCreatePool(EnemyPrefab.gameObject).Get();
                 prefab.transform.position = activeSpawnPoint.transform.position;
                 _spawnPoints.Enqueue(activeSpawnPoint);
                 _spawnedCount++;
             }
 
             yield return new WaitForSeconds(SpawnDelay);
+            
         }
+    }
+
+    public void EnemyDeath()
+    {
+        _spawnedCount--;
     }
 }

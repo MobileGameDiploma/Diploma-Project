@@ -8,7 +8,7 @@ public class FireBallLogic : MonoBehaviour
 {
     public List<GameObject> Visuals;
     public Transform Target;
-    public FireBall System;
+    public FireBallSystem System;
     
     [Inject]
     private PlayerStats _playerStats;

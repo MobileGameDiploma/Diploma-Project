@@ -5,6 +5,7 @@ using Zenject;
 public class EnemyHealthSystem : MonoBehaviour
 {
     public EnemyStats EnemyStats;
+    public EnemyGroupSpawnSystem EnemyGroupSystem;
     [Inject] ObjectPoolService _objectPoolService;
     private float _health;
 
@@ -20,6 +21,7 @@ public class EnemyHealthSystem : MonoBehaviour
         if (_health <= 0)
         {
             _objectPoolService.GetOrCreatePool(gameObject).Release(gameObject);
+            EnemyGroupSystem.EnemyDeath();
         }
     }
     
@@ -31,6 +33,8 @@ public class EnemyHealthSystem : MonoBehaviour
         {
             spellSystem.DeleteEnemy(this.gameObject);
             _objectPoolService.GetOrCreatePool(gameObject).Release(gameObject);
+            EnemyGroupSystem.EnemyDeath();
         }
     }
+    
 }
