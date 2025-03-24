@@ -18,7 +18,10 @@ public class PlayerMonoInstaller : MonoInstaller
     [Header("Player Parameters")]
     public float Speed;
     [Range(1, 10)]public float CameraMoveSpeed;
-    public PlayerStats PlayerStats; 
+    public PlayerStats PlayerStats;
+    
+    [Header("Player Object")]
+    public GameObject PlayerObject;
     
     #region ObjectContainers
     private PlayerConfig _playerConfig;
@@ -44,5 +47,6 @@ public class PlayerMonoInstaller : MonoInstaller
         Container.Bind<PlayerConfig>().FromInstance(_playerConfig).AsSingle();
         Container.Bind<CameraConfig>().FromInstance(_cameraConfig).AsSingle();
         Container.Bind<CharacterController>().FromInstance(CharacterController).AsSingle();
+        Container.Bind<GameObject>().WithId("Player").FromInstance(PlayerObject).AsSingle();
     }
 }

@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class EnemyMovementSystem : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
-    public float Speed = 2;
-    public float MoveDelay = 4;
-    [Inject(Id = "StandartLength")]
-    public float Length;
+    public EnemyStats Stats;
     
     private Vector3 _center;
     
@@ -23,10 +20,10 @@ public class EnemyMovementSystem : MonoBehaviour
     {
         _center = gameObject.transform.position;
         
-        _minX = _center.x - Length;
-        _maxX = _center.x + Length;
-        _minZ = _center.z - Length;
-        _maxZ = _center.z + Length;
+        _minX = _center.x - Stats.Length;
+        _maxX = _center.x + Stats.Length;
+        _minZ = _center.z - Stats.Length;
+        _maxZ = _center.z + Stats.Length;
         
         StartCoroutine(MoveTowardsPoint());
     }
@@ -37,10 +34,10 @@ public class EnemyMovementSystem : MonoBehaviour
         while (true)
         {
             activePosition = GetRandomPoint();
-            yield return new WaitForSecondsRealtime(MoveDelay);
+            yield return new WaitForSecondsRealtime(Stats.MoveDelay);
             while (transform.position != activePosition)
             {
-                transform.position = Vector3.MoveTowards(transform.position, activePosition, Speed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, activePosition, Stats.Speed * Time.deltaTime);
                 yield return new WaitForSecondsRealtime(0.01f);
             }
         }

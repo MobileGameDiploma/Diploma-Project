@@ -2,5 +2,6 @@
 
 public interface ISpellMultipleTargets : ISpell
 {
-    public abstract void DeleteEnemy(GameObject target);
+    public abstract void AddTarget(GameObject target);
+    public abstract void RemoveTarget(GameObject target);
 }

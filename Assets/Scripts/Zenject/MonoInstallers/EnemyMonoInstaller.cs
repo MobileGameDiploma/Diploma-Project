@@ -10,7 +10,11 @@ public class EnemyMonoInstaller : MonoInstaller
     [Header("Нормальная зона передвижения")]
     public float StandartLength;
     [Header("Слой врагов")]
-    public LayerMask LayerMask;
+    public LayerMask EnemyLayer;
+    [Header("Слой магических навыков")] 
+    public LayerMask SpellLayer;
+    [Header("Слой систем магических навыков")] 
+    public LayerMask SpellSystemsLayer;
     
     private GameObjectPoolFactory _poolFactory;
     private ObjectPoolService _pool;
@@ -32,6 +36,9 @@ public class EnemyMonoInstaller : MonoInstaller
         Container.Bind<ObjectPoolService>().FromInstance(_pool).AsSingle().NonLazy();
         Container.Bind<float>().WithId("SmallLength").FromInstance(SmallLength).AsCached().NonLazy();
         Container.Bind<float>().WithId("StandartLength").FromInstance(StandartLength).AsCached().NonLazy();
-        Container.Bind<LayerMask>().WithId("EnemyLayer").FromInstance(LayerMask).AsCached().NonLazy();
+        Container.Bind<LayerMask>().WithId("EnemyLayer").FromInstance(EnemyLayer).AsCached().NonLazy();
+        Container.Bind<LayerMask>().WithId("SpellLayer").FromInstance(SpellLayer).AsCached().NonLazy();
+        Container.Bind<LayerMask>().WithId("SpellSystemsLayer").FromInstance(SpellSystemsLayer).AsCached().NonLazy();
+        
     }
 }

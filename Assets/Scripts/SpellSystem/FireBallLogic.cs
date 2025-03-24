@@ -46,7 +46,6 @@ public class FireBallLogic : MonoBehaviour
     {
         if ((_enemyLayer.value & (1 << other.gameObject.layer)) > 0)
         {
-            Debug.Log(LayerMask.LayerToName(other.gameObject.layer));
             StartCoroutine(DestroyFireBall(other.gameObject));
         }
     }

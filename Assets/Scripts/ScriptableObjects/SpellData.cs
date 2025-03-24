@@ -8,12 +8,9 @@ public class SpellData : ScriptableObject
     public bool IsActive;
     public Sprite AnimatedImage;
     public GameObject VFX_Effect;
-    public Collider Collider;
     public float CastDelay;
     public float Damage;
     public float CastSpeed;
     public AudioClip ActivationSound;
     public AudioClip DeactivationSound;
-    
-    
 }

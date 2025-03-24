@@ -1,8 +1,13 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Enemy Data", menuName = "ScriptableObject/EnemyData")]
+[CreateAssetMenu(fileName = "New Enemy Data", menuName = "ScriptableObject/EnemyData/BasicEnemy")]
 public class EnemyStats : ScriptableObject
 {
-    public string ID;
+    [Header("Enemy Parameters")]
     public float Health;
+    
+    [Header("Movement Parameters")]
+    public float Speed;
+    public float Length;
+    public float MoveDelay;
 }

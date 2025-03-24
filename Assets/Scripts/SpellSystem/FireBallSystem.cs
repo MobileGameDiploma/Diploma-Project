@@ -33,11 +33,6 @@ public class FireBallSystem : MonoBehaviour, ISpellMultipleTargets
         StartCoroutine(SpellReload());
     }
     
-    public void DeleteEnemy(GameObject target)
-    {
-        _enemies.Remove(target);
-    }
-    
     IEnumerator SpellReload()
     {
         _currentSpell.IsActive = true;
@@ -56,19 +51,15 @@ public class FireBallSystem : MonoBehaviour, ISpellMultipleTargets
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void AddTarget(GameObject target)
     {
-        if ((_enemyLayer.value & (1 << other.gameObject.layer)) > 0 )
-        {
-            _enemies.Add(other.gameObject);
-        }
+        Debug.Log(target);
+        _enemies.Add(target);
     }
-
-    private void OnTriggerExit(Collider other)
+    
+    public void RemoveTarget(GameObject target)
     {
-        if ((_enemyLayer.value & (1 << other.gameObject.layer)) > 0 )
-        {
-            _enemies.Remove(other.gameObject);
-        }
+        _enemies.Remove(target);
     }
+    
 }
