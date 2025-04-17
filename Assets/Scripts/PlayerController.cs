@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private FixedJoystick _joystick;
     private float _speed;
     private PlayerStats _stats;
+    private LayerMask _uIActivatorLayerMask;
     
     private CinemachineVirtualCamera _cam;
     private float _minCameraAngle;
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
         _joystick = playerConfig.joystick;
         _speed = playerStats.Speed;
         _stats = playerStats;
+        _uIActivatorLayerMask = playerConfig.UIActivationLayer;
 
         _cam = cameraConfig.VirtualCamera;
         _minCameraAngle = cameraConfig.MinCameraAngle;
@@ -65,6 +67,24 @@ public class PlayerController : MonoBehaviour
     private float GetMaxAxis()
     {
         return Mathf.Max(Math.Abs(_joystick.Horizontal), Math.Abs(_joystick.Vertical));
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if ((other.gameObject.layer & (1 << _uIActivatorLayerMask)) != 0)
+        {
+            GameObject canvas = other.transform.Find("Canvas").gameObject;
+            canvas.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if ((other.gameObject.layer & (1 << _uIActivatorLayerMask)) != 0)
+        {
+            GameObject canvas = other.transform.Find("Canvas").gameObject;
+            canvas.SetActive(false);
+        }
     }
 
     private void OnApplicationQuit()

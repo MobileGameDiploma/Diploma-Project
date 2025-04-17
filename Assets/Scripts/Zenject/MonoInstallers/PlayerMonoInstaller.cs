@@ -14,6 +14,7 @@ public class PlayerMonoInstaller : MonoInstaller
     [Range(12, 20)]
     public float MaxCameraAngle = 16;
     public float MinCameraAngle = 11;
+    public LayerMask UIActivatorsLayerMask;
 
     [Header("Player Parameters")]
     public float Speed;
@@ -37,7 +38,7 @@ public class PlayerMonoInstaller : MonoInstaller
     
     private void BuildObjects()
     {
-        _playerConfig = new PlayerConfig(Rigidbody, PlayerJoyStick);
+        _playerConfig = new PlayerConfig(Rigidbody, PlayerJoyStick, UIActivatorsLayerMask);
         _cameraConfig = new CameraConfig(VirtualCamera, MaxCameraAngle, MinCameraAngle, CameraMoveSpeed);
     }
 

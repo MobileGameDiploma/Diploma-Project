@@ -6,8 +6,9 @@ public class PlayerConfig
 {
     public Rigidbody Rigidbody;
     public FixedJoystick joystick;
+    public LayerMask UIActivationLayer;
 
-    public PlayerConfig(Rigidbody rigidbody, FixedJoystick joystick)
+    public PlayerConfig(Rigidbody rigidbody, FixedJoystick joystick, LayerMask activationLayer)
     {
         Rigidbody = rigidbody;
         this.joystick = joystick;
