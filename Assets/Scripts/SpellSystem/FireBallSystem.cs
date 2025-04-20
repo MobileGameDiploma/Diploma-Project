@@ -53,7 +53,6 @@ public class FireBallSystem : MonoBehaviour, ISpellMultipleTargets
 
     public void AddTarget(GameObject target)
     {
-        Debug.Log(target);
         _enemies.Add(target);
     }
     

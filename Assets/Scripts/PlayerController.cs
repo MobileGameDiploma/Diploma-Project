@@ -71,8 +71,9 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.gameObject.layer & (1 << _uIActivatorLayerMask)) != 0)
+        if ((_uIActivatorLayerMask.value & (1 << other.gameObject.layer)) > 0)
         {
+            Debug.Log(LayerMask.LayerToName(other.gameObject.layer));
             GameObject canvas = other.transform.Find("Canvas").gameObject;
             canvas.SetActive(true);
         }
@@ -80,7 +81,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if ((other.gameObject.layer & (1 << _uIActivatorLayerMask)) != 0)
+        if ((_uIActivatorLayerMask.value & (1 << other.gameObject.layer)) > 0)
         {
             GameObject canvas = other.transform.Find("Canvas").gameObject;
             canvas.SetActive(false);

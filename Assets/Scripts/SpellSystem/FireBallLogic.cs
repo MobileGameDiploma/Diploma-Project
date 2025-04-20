@@ -19,13 +19,12 @@ public class FireBallLogic : MonoBehaviour
     [Inject(Id = "EnemyLayer")]
     private LayerMask _enemyLayer;
     
-    
+    private List<AudioSource> _audioSources = new List<AudioSource>(); 
     private SpellData _currentSpell;
     private GameObjectPool _audioPool;
     
     private void Start()
     {
-        Debug.Log(_audioSource);
         _currentSpell = _playerStats.GetSpellByName("Fireball");
         _audioPool = _poolService.GetOrCreatePool(_audioSource.gameObject);
         MakeSound(_currentSpell.ActivationSound);
@@ -58,6 +57,7 @@ public class FireBallLogic : MonoBehaviour
         enemy.GetComponent<EnemyHealthSystem>().DealDamage(_currentSpell.Damage, System);
         Invisible();
         yield return new WaitForSeconds(_currentSpell.DeactivationSound.length);
+        DestroyAudioSources();
         Destroy(gameObject);
     }
 
@@ -70,8 +70,17 @@ public class FireBallLogic : MonoBehaviour
     }
     private void MakeSound(AudioClip clip)
     {
-        AudioSource audioSource = _audioPool.Get().GetComponent<AudioSource>();
-        audioSource.clip = clip;
-        audioSource.Play();
+       AudioSource audioSource = _audioPool.Get().GetComponent<AudioSource>();
+       audioSource.clip = clip;
+       audioSource.Play();
+       _audioSources.Add(audioSource);
+    }
+
+    private void DestroyAudioSources()
+    {
+        foreach (AudioSource audioSource in _audioSources)
+        {
+            _audioPool.Release(audioSource.gameObject);
+        }
     }
 }
