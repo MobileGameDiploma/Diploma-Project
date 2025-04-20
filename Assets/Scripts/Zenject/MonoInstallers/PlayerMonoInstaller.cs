@@ -11,13 +11,12 @@ public class PlayerMonoInstaller : MonoInstaller
     public CharacterController CharacterController;
 
     [Header("Technical Parameters")]
-    [Range(12, 20)]
-    public float MaxCameraAngle = 16;
-    public float MinCameraAngle = 11;
+    [Range(20, 50)]
+    public float MaxCameraAngle = 26;
+    public float MinCameraAngle = 20;
     public LayerMask UIActivatorsLayerMask;
 
     [Header("Player Parameters")]
-    public float Speed;
     [Range(1, 10)]public float CameraMoveSpeed;
     public PlayerStats PlayerStats;
     

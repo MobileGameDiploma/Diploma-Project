@@ -1614,12 +1614,11 @@ MonoBehaviour:
   PlayerJoyStick: {fileID: 1801956202}
   VirtualCamera: {fileID: 61735917}
   CharacterController: {fileID: 1766240876}
-  MaxCameraAngle: 16.02
-  MinCameraAngle: 11
+  MaxCameraAngle: 30
+  MinCameraAngle: 25
   UIActivatorsLayerMask:
     serializedVersion: 2
     m_Bits: 512
-  Speed: 100
   CameraMoveSpeed: 8
   PlayerStats: {fileID: 11400000, guid: 1d2625f0a690b2f4899242b0cd6c8add, type: 2}
   PlayerObject: {fileID: 810440989}
@@ -1921,6 +1920,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2682231926498597382, guid: 8e65f3562900fc94b9b5fbd9c8073738,
+        type: 3}
+      propertyPath: field of view
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 3353502860781855693, guid: 8e65f3562900fc94b9b5fbd9c8073738,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -2054,15 +2058,56 @@ PrefabInstance:
     - target: {fileID: 5566811989915575290, guid: 8e65f3562900fc94b9b5fbd9c8073738,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11
+      value: 29.999998
       objectReference: {fileID: 0}
     - target: {fileID: 5566811989915575290, guid: 8e65f3562900fc94b9b5fbd9c8073738,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.000001
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566811989915575290, guid: 8e65f3562900fc94b9b5fbd9c8073738,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9245502
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566811989915575290, guid: 8e65f3562900fc94b9b5fbd9c8073738,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.38106042
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566811989915575290, guid: 8e65f3562900fc94b9b5fbd9c8073738,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.000000027553751
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566811989915575290, guid: 8e65f3562900fc94b9b5fbd9c8073738,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.000000011356488
+      objectReference: {fileID: 0}
+    - target: {fileID: 8212035438875175175, guid: 8e65f3562900fc94b9b5fbd9c8073738,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9245502
+      objectReference: {fileID: 0}
+    - target: {fileID: 8212035438875175175, guid: 8e65f3562900fc94b9b5fbd9c8073738,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.38106036
+      objectReference: {fileID: 0}
+    - target: {fileID: 8212035438875175175, guid: 8e65f3562900fc94b9b5fbd9c8073738,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.000000027553746
+      objectReference: {fileID: 0}
+    - target: {fileID: 8212035438875175175, guid: 8e65f3562900fc94b9b5fbd9c8073738,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0000000113564855
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4478873717914412858, guid: 8e65f3562900fc94b9b5fbd9c8073738, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4191045387383942441, guid: 8e65f3562900fc94b9b5fbd9c8073738,
