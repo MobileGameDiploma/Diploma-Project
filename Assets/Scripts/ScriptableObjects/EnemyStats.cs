@@ -10,4 +10,7 @@ public class EnemyStats : ScriptableObject
     public float Speed;
     public float Length;
     public float MoveDelay;
+    [Header("Loot Parameters")] 
+    public int MagicPoints;
+    public int ExperiencePoints;
 }

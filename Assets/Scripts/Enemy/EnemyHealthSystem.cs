@@ -8,8 +8,9 @@ public class EnemyHealthSystem : MonoBehaviour
     public EnemyStats EnemyStats;
     public EnemyGroupSpawnSystem EnemyGroupSystem;
     public bool IsTarget = false;
-    [Inject] ObjectPoolService _objectPoolService;
-    [Inject(Id = "SpellSystemsLayer")] LayerMask _spellSystemsLayer;
+    [Inject] private ObjectPoolService _objectPoolService;
+    [Inject(Id = "SpellSystemsLayer")] private LayerMask _spellSystemsLayer;
+    [Inject] private LootSystem _lootSystem;
     private float _health;
 
     private void Awake()
@@ -35,6 +36,7 @@ public class EnemyHealthSystem : MonoBehaviour
             spellSystem.RemoveTarget(gameObject);
             IsTarget = false;
             _objectPoolService.GetOrCreatePool(gameObject).Release(gameObject);
+            _lootSystem.GivePrize(EnemyStats.MagicPoints, EnemyStats.ExperiencePoints);
             EnemyGroupSystem.EnemyDeath();
         }
     }

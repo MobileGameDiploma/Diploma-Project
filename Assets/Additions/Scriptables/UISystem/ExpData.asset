@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b6392d2f38c46fab0c4d1350f84545e, type: 3}
-  m_Name: BasicEnemy
+  m_Script: {fileID: 11500000, guid: 416b309810c097e4ea3ef3a4df45df02, type: 3}
+  m_Name: ExpData
   m_EditorClassIdentifier: 
-  Health: 100
-  Speed: 6
-  Length: 5
-  MoveDelay: 4
-  MagicPoints: 20
-  ExperiencePoints: 20
+  CurrentLevelExp: 0
+  NextLevelExp: 0
+  ExpSlider: {fileID: 0}
+  LevelExps: 

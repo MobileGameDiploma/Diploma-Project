@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "InventoryItem", menuName = "ScriptableObjects/InventoryItem")]
-public class Item : ScriptableObject
+[CreateAssetMenu(fileName = "InventoryItem", menuName = "ScriptableObject/InventoryItem")]
+public class ItemData : ScriptableObject
 {
     public int Id = 0;
     public TMP_Text Editable_Text;
