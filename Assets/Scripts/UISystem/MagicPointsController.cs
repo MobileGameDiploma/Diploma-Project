@@ -16,18 +16,18 @@ public class MagicPointsController
     public void SetValue(long value)
     {
         CurrentValue = value;
-        _textValue.text = NumberConverter.INSTANCE.Convert(value);
+        _textValue.text = NumberConverter.Convert(CurrentValue);
     }
 
     public void AddValue(int value)
     {
         CurrentValue += value;
-        _textValue.text = NumberConverter.INSTANCE.Convert(value);
+        _textValue.text = NumberConverter.Convert(CurrentValue);
     }
 
     public void WithDrawValue(int value)
     {
         CurrentValue -= value;
-        _textValue.text = NumberConverter.INSTANCE.Convert(value);
+        _textValue.text = NumberConverter.Convert(CurrentValue);
     }
 }

@@ -50,7 +50,6 @@ public class FireBallLogic : MonoBehaviour
     }
 
     
-
     IEnumerator DestroyFireBall(GameObject enemy)
     {
         MakeSound(_currentSpell.DeactivationSound);

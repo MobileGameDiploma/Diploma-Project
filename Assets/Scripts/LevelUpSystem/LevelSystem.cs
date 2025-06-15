@@ -15,30 +15,32 @@ public class LevelSystem : MonoBehaviour
     public List<int> LevelUpMagicPoints;
     private int index;
     [Inject] private UISystem _uiSystem;
+    [Inject] DoorSystem _doorSystem;
 
     private void Awake()
     {
         index = 0;
+        NextLevelValue = LevelExps[index];
     }
 
     public void SetExp(int exp)
     {
         CurrentValue = exp;
-        ExpSlider.value = exp;
+        ExpSlider.value = CurrentValue;
         CheckOnLevelUp();
     }
 
     public void AddExp(int exp)
     {
         CurrentValue += exp;
-        ExpSlider.value = exp;
+        ExpSlider.value = CurrentValue;
         CheckOnLevelUp();
     }
 
     public void RemoveExp(int exp)
     {
         CurrentValue -= exp;
-        ExpSlider.value = exp;
+        ExpSlider.value = CurrentValue;
     }
 
     private void CheckOnLevelUp()
@@ -51,14 +53,15 @@ public class LevelSystem : MonoBehaviour
 
     private void NextLevel()
     {
-        if (LevelExps.Count < index)
+        if (LevelExps.Count > index)
         {
             SetExp(0);
-            NextLevelValue=LevelExps[index];
-            ExpSlider.maxValue = NextLevelValue;
             _uiSystem.ActivatePrizeWindow(LevelUpMagicPoints[index]);
             _uiSystem.MagicPointsController.AddValue(LevelUpMagicPoints[index]);
             index++;
+            NextLevelValue=LevelExps[index];
+            ExpSlider.maxValue = NextLevelValue;
+            _doorSystem.OpenDoor();
         }
     }
 }

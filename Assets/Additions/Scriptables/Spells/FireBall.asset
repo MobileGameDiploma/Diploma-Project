@@ -18,7 +18,6 @@ MonoBehaviour:
   AnimatedImage: {fileID: 0}
   VFX_Effect: {fileID: 249125506715470191, guid: 75fa176400ceac94f92bed2b34be01cf,
     type: 3}
-  Collider: {fileID: 0}
   CastDelay: 3
   Damage: 20
   CastSpeed: 3

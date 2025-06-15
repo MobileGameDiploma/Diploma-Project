@@ -16,7 +16,7 @@ public class UISystem : MonoBehaviour
     [Inject(Id = "MagicPointsPrize")] private TextMeshProUGUI MagicPointsPrize;
     [Inject(Id = "ExperiencePointsPrize")] private TextMeshProUGUI ExperiencePointsPrize;
     [Header("Additional")]
-    [Inject(Id = "magicPointsText")] private TextMeshProUGUI _magicPointsText;
+    [Inject(Id = "MagicPointsText")] private TextMeshProUGUI _magicPointsText;
     [Inject] DoorSystem _doorSystem;
     
     
@@ -69,7 +69,8 @@ public class UISystem : MonoBehaviour
 
     public void ActivatePrizeWindow(int magicPointsPrize)
     {
-        MagicPointsPrize.text = NumberConverter.INSTANCE.Convert(magicPointsPrize);
+        MagicPointsPrize.text = NumberConverter.Convert(magicPointsPrize);
+        PrizeWindow.SetActive(true);
     }
     
     public void DisablePrizeWindow()

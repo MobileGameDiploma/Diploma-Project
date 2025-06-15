@@ -8,7 +8,7 @@ using Zenject;
 
 public class ShopSystem : MonoBehaviour
 {
-    [Inject]private UIData _uiData;
+    [Inject]private UISystem _uiSystem;
     [Inject] private PlayerStats _playerStats;
     
     public TextMeshProUGUI DamagePriceText;
@@ -16,8 +16,8 @@ public class ShopSystem : MonoBehaviour
     public TextMeshProUGUI CastSpeedPriceText;
     
     [Inject(Id = "DamageUpgrades")] private List<int> _damageUpgrades;
-    [Inject(Id = "SpeedUpgrades")] private List<int> _speedUpgrades;
-    [Inject(Id = "CastUpgrades")] private List<int> _castUpgrades;
+    [Inject(Id = "SpeedUpgrades")] private List<float> _speedUpgrades;
+    [Inject(Id = "CastUpgrades")] private List<float> _castUpgrades;
     
     [Inject(Id = "DamageUpgradesPrices")] private List<int> _damageUpgradesPrices;
     [Inject(Id = "SpeedUpgradesPrices")] private List<int> _speedUpgradesPrices;
@@ -32,38 +32,39 @@ public class ShopSystem : MonoBehaviour
         _damageIndex = 0;
         _speedIndex = 0;
         _castIndex = 0;
+        NumberConverter.SetUp();
     }
 
     public void DamageUpgrade()
     {
-        if (_uiData.MagicPointsData.CurrentValue >= _damageUpgradesPrices[_damageIndex])
+        if (_uiSystem.MagicPointsController.CurrentValue >= _damageUpgradesPrices[_damageIndex])
         {
-            _uiData.MagicPointsData.WithDrawValue(_damageUpgradesPrices[_damageIndex]);
+            _uiSystem.MagicPointsController.WithDrawValue(_damageUpgradesPrices[_damageIndex]);
             _playerStats.GetSpellByName("Fireball").Damage += _damageUpgrades[_damageIndex];
             _damageIndex++;
-            DamagePriceText.text = NumberConverter.INSTANCE.Convert(_damageUpgradesPrices[_damageIndex]);
+            DamagePriceText.text = NumberConverter.Convert(_damageUpgradesPrices[_damageIndex]);
         }
     }
 
     public void SpeedUpgrade()
     {
-        if (_uiData.MagicPointsData.CurrentValue >= _speedUpgradesPrices[_speedIndex])
+        if (_uiSystem.MagicPointsController.CurrentValue >= _speedUpgradesPrices[_speedIndex])
         {
-            _uiData.MagicPointsData.WithDrawValue(_speedUpgradesPrices[_speedIndex]);
+            _uiSystem.MagicPointsController.WithDrawValue(_speedUpgradesPrices[_speedIndex]);
             _playerStats.Speed += _speedUpgrades[_speedIndex];
             _speedIndex++;
-            SpeedPriceText.text = NumberConverter.INSTANCE.Convert(_speedUpgradesPrices[_speedIndex]);
+            SpeedPriceText.text = NumberConverter.Convert(_speedUpgradesPrices[_speedIndex]);
         }
     }
 
     public void CastSpeedUpgrade()
     {
-        if (_uiData.MagicPointsData.CurrentValue >= _castSpeedUpgradesPrices[_castIndex])
+        if (_uiSystem.MagicPointsController.CurrentValue >= _castSpeedUpgradesPrices[_castIndex])
         {
-            _uiData.MagicPointsData.WithDrawValue(_castSpeedUpgradesPrices[_castIndex]);
+            _uiSystem.MagicPointsController.WithDrawValue(_castSpeedUpgradesPrices[_castIndex]);
             _playerStats.GetSpellByName("Fireball").CastDelay -= _castUpgrades[_castIndex];
             _castIndex++;
-            CastSpeedPriceText.text = NumberConverter.INSTANCE.Convert(_castSpeedUpgradesPrices[_castIndex]);
+            CastSpeedPriceText.text = NumberConverter.Convert(_castSpeedUpgradesPrices[_castIndex]);
         }
     }
 }

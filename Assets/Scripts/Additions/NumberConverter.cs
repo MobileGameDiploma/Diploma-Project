@@ -5,27 +5,12 @@ using System.Text;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class NumberConverter
+public static class NumberConverter
 {
-    private Dictionary<long, string> numbers = new Dictionary<long, string>();
+    public static Dictionary<long, string> numbers = new Dictionary<long, string>();
     
-    public static NumberConverter INSTANCE
-    {
-        get
-        {
-            if (INSTANCE == null)
-            {
-                INSTANCE = new NumberConverter();
-            }
-            return INSTANCE;
-        }
-        private set
-        {
-            INSTANCE = value;
-        }
-    }
 
-    public NumberConverter()
+    public static void SetUp()
     {
         numbers.Add(1000, "K");
         numbers.Add(1000000, "M");
@@ -36,29 +21,28 @@ public class NumberConverter
     }
     
     
-    public string Convert(long number)
+    public static string Convert(long number)
     {
         string result = string.Empty;
-
         switch (number)
         {
             case > 1000000000000000000:
-                result = AddCommaToString(System.Convert.ToString(number / 1000000000000000), 1) + ' ' + numbers[1000000000000000000];
+                result = AddCommaToString((number / 1000000000000000).ToString(), 1) + ' ' + numbers[1000000000000000000];
                 break;
             case > 1000000000000000:
-                result = AddCommaToString(System.Convert.ToString(number / 1000000000000), 1) + ' ' + numbers[1000000000000000];
+                result = AddCommaToString((number / 1000000000000).ToString(), 1) + ' ' + numbers[1000000000000000];
                 break;
             case > 1000000000000:
-                result = AddCommaToString(System.Convert.ToString(number / 1000000000), 1) + ' ' + numbers[1000000000000];
+                result = AddCommaToString((number / 1000000000).ToString(), 1) + ' ' + numbers[1000000000000];
                 break;
             case > 1000000000:
-                result = AddCommaToString(System.Convert.ToString(number / 1000000), 1) + ' ' + numbers[1000000000];
+                result = AddCommaToString((number / 1000000).ToString(), 1) + ' ' + numbers[1000000000];
                 break;
             case > 1000000:
-                result = AddCommaToString(System.Convert.ToString(number / 1000), 1) + ' ' + numbers[1000000];
+                result = AddCommaToString((number / 1000).ToString(), 1) + ' ' + numbers[1000000];
                 break;
             case > 1000:
-                result = AddCommaToString(System.Convert.ToString(number / 1 ), 1) + ' ' + numbers[1000];
+                result = AddCommaToString((number / 1 ).ToString(), 1) + ' ' + numbers[1000];
                 break;
             default:
                 result = System.Convert.ToString(number);
@@ -68,7 +52,7 @@ public class NumberConverter
         return result;
     }
 
-    private string AddCommaToString(string target, int index)
+    public static string AddCommaToString(string target, int index)
     {
         StringBuilder sb = new StringBuilder();
 

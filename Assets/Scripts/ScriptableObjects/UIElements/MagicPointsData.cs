@@ -12,18 +12,18 @@ public class MagicPointsData : ScriptableObject
     public void SetValue(long value)
     {
         CurrentValue = value;
-        ValueText.text = NumberConverter.INSTANCE.Convert(value);
+        ValueText.text = NumberConverter.Convert(value);
     }
 
     public void AddValue(int value)
     {
         CurrentValue += value;
-        ValueText.text = NumberConverter.INSTANCE.Convert(value);
+        ValueText.text = NumberConverter.Convert(value);
     }
 
     public void WithDrawValue(int value)
     {
         CurrentValue -= value;
-        ValueText.text = NumberConverter.INSTANCE.Convert(value);
+        ValueText.text = NumberConverter.Convert(value);
     }
 }

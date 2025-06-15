@@ -28,6 +28,6 @@ public class ItemData : ScriptableObject
 
     private void UpdateUI()
     {
-        Editable_Text.text = NumberConverter.INSTANCE.Convert(Amount);
+        Editable_Text.text = NumberConverter.Convert(Amount);
     }
 }

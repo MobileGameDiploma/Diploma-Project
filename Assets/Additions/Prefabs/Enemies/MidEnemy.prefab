@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7974327124933857912}
   - component: {fileID: 4541719233681633620}
   m_Layer: 3
-  m_Name: Enemy
+  m_Name: MidEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a437b86378fb0c3418de12b056def8d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Stats: {fileID: 11400000, guid: 8ce1b74549bfbe145b48393a23e7477e, type: 2}
+  Stats: {fileID: 11400000, guid: 395850d1278dd6d4a8fe71704190b3e5, type: 2}
 --- !u!114 &7974327124933857912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e207b2501aeb4df8aa6de4d60656d2b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyStats: {fileID: 11400000, guid: 8ce1b74549bfbe145b48393a23e7477e, type: 2}
+  EnemyStats: {fileID: 11400000, guid: 395850d1278dd6d4a8fe71704190b3e5, type: 2}
   EnemyGroupSystem: {fileID: 0}
   IsTarget: 0
 --- !u!114 &4541719233681633620

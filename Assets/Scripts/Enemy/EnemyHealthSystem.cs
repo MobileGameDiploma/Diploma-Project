@@ -35,7 +35,7 @@ public class EnemyHealthSystem : MonoBehaviour
         {
             spellSystem.RemoveTarget(gameObject);
             IsTarget = false;
-            _objectPoolService.GetOrCreatePool(gameObject).Release(gameObject);
+            _objectPoolService.GetOrCreatePool(gameObject).Release(gameObject); 
             _lootSystem.GivePrize(EnemyStats.MagicPoints, EnemyStats.ExperiencePoints);
             EnemyGroupSystem.EnemyDeath();
         }

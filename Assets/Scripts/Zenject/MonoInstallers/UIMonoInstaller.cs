@@ -25,6 +25,10 @@ public class UIMonoInstaller : MonoInstaller
         Container.Bind<GameObject>().WithId("UpgradeShopPanel").FromInstance(UpgradeShopPanel).AsCached();
         Container.Bind<GameObject>().WithId("EventPanel").FromInstance(EventPanel).AsCached();
         Container.Bind<GameObject>().WithId("ShopPanel").FromInstance(ShopPanel).AsCached();
+        Container.Bind<GameObject>().WithId("PrizeWindow").FromInstance(PrizeWindow).AsCached();
+        Container.Bind<TextMeshProUGUI>().WithId("MagicPointsPrize").FromInstance(MagicPointsPrize).AsCached();
+        Container.Bind<TextMeshProUGUI>().WithId("ExperiencePointsPrize").FromInstance(ExperiencePointsPrize).AsCached();
+        Container.Bind<TextMeshProUGUI>().WithId("MagicPointsText").FromInstance(MagicPointsText).AsCached();
         Container.Bind<UIData>().FromInstance(UIData).AsCached();
     }
 }
