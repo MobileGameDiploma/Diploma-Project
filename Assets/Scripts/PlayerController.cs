@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
     private void MovePlayer()
     {
-        Vector3 movement = new Vector3(_joystick.Horizontal, 0, _joystick.Vertical) * _speed * Time.fixedDeltaTime;
+        Vector3 movement = new Vector3(_joystick.Horizontal, 0, _joystick.Vertical) * _stats.Speed * Time.fixedDeltaTime;
         //_rb.MovePosition(transform.position + movement);
         transform.position += movement;
     }

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: LowRank
   m_EditorClassIdentifier: 
   Health: 100
-  Speed: 6
+  Speed: 4
   Length: 5
   MoveDelay: 4
   MagicPoints: 20
-  ExperiencePoints: 2000
+  ExperiencePoints: 80

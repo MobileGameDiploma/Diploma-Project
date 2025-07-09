@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: HighRank
   m_EditorClassIdentifier: 
   Health: 500
-  Speed: 10
-  Length: 5
+  Speed: 9
+  Length: 15
   MoveDelay: 1
   MagicPoints: 700
-  ExperiencePoints: 4000
+  ExperiencePoints: 0

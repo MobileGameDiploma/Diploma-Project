@@ -18,7 +18,7 @@ MonoBehaviour:
   AnimatedImage: {fileID: 0}
   VFX_Effect: {fileID: 249125506715470191, guid: 75fa176400ceac94f92bed2b34be01cf,
     type: 3}
-  CastDelay: 3
+  CastDelay: 2.5
   Damage: 20
   CastSpeed: 3
   ActivationSound: {fileID: 8300000, guid: 4cf30fb11307b8e40a5e67b3ce30d1b7, type: 3}

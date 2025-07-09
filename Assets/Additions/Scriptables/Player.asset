@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   Health: 0
-  Speed: 0.5
+  Speed: 6
   Defence: 0
   Armor: 0
   CameraMoveSpeed: 0

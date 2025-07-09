@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b6392d2f38c46fab0c4d1350f84545e, type: 3}
   m_Name: MidRank
   m_EditorClassIdentifier: 
-  Health: 400
-  Speed: 8
-  Length: 5
+  Health: 240
+  Speed: 6
+  Length: 9
   MoveDelay: 2
   MagicPoints: 60
-  ExperiencePoints: 500
+  ExperiencePoints: 140
